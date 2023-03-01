@@ -1,0 +1,90 @@
+.banner-bg{
+    background-image: url("/assets/world-map.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.banner-text{
+    max-width: 75%;
+    font-size: 50px;
+    text-transform: capitalize;
+}
+.banner-para{
+    max-width: 65%;
+}
+.banner-input{
+    background-color: transparent;
+    width: 300px;
+    height: 50px;
+    border: 1px solid #b5b8b9;
+    outline: white;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+.submit-btn{
+    background-color: transparent;
+    width: 300px;
+    height: 50px;
+    border: 1px solid #b5b8b9;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    transition: all 0.5s;
+}
+.submit-btn:hover{
+    background-color: #a809cc;
+    color: white;
+    border: 1px solid #a809cc;
+}
+.down-arrow{
+    position: absolute;
+    left: 50%;
+    font-size: 26px;
+}
+@media (max-width:576px) {
+    .banner-text{
+        font-size: 30px;
+        max-width: 100%;
+        margin: 10px auto 20px;
+        text-align: center;
+    }
+    .banner-para{
+        max-width: 100%;
+        margin: 10px auto 20px;
+        text-align: center;
+    }
+    .input-responsive{
+        text-align: center;
+    }
+    .submit-btn{
+        margin-bottom: 20px;
+    }
+    .down-arrow{
+        display: none;
+    }
+}
+@media (max-width:992px) {
+    .banner-text{
+        font-size: 30px;
+        max-width: 100%;
+        margin: 10px auto 20px;
+        text-align: center;
+    }
+    .banner-para{
+        max-width: 100%;
+        margin: 10px auto 20px;
+        text-align: center;
+    }
+    .input-responsive{
+        text-align: center !important;
+    }
+    .submit-btn{
+        margin-bottom: 20px;
+    }
+    .down-arrow{
+        display: none;
+    }
+}

@@ -1,0 +1,17 @@
+.button-styling{
+    width: 250px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid #b5b8b9;
+    color: #b5b8b9;
+}
+@media (max-width:576px) {
+    .download-btn{
+        display: none;
+    }
+}
+    @media (max-width:992px) {
+        .download-btn{
+            display: none;
+        }
+    }
