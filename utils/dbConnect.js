@@ -8,7 +8,7 @@ const connection = {};
 	}
 
 	try {
-		const db = await mongoose.connect("mongodb://localhost:27017/openauto", {
+		const db = await mongoose.connect("mongodb+srv://pooja1012:Umw7C3I1VJPt62eo@cluster0.ppwwi.mongodb.net/OpenAuto", {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 		});

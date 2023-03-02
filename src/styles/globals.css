@@ -105,6 +105,9 @@ a {
   width: 90% !important;
   margin: 0 auto !important;
 }
+.text-left{
+  margin-left: 20px;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

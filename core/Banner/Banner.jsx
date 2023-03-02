@@ -72,7 +72,7 @@ const Banner = () => {
                 }}
               />
               {error ? (
-                <p className="text-danger">Please Enter Your Name</p>
+                <p className="text-danger text-left">Please Enter Your Name</p>
               ) : (
                 ""
               )}
@@ -90,7 +90,7 @@ const Banner = () => {
                 }}
               />
               {error ? (
-                <p className="text-danger">Please Enter Your Email</p>
+                <p className="text-danger text-left">Please Enter Your Email</p>
               ) : (
                 ""
               )}
