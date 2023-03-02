@@ -31,6 +31,9 @@ const Banner = () => {
           toast?.success("Successfully Registered!");
         }
         SetrespData(res.data.data);
+      }).catch((error)=>{
+        console.log(error,"error");
+        toast?.error(error?.response?.data?.Message);
       });
       Seterror(false);
     }
