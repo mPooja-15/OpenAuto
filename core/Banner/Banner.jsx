@@ -1,41 +1,42 @@
-import { FaFacebookF } from "react-icons/fa";
-import {
-  AiOutlineTwitter,
-  AiFillYoutube,
-  AiFillLinkedin,
-  AiOutlineInstagram,
-} from "react-icons/ai";
 import { CgPushChevronDownO } from "react-icons/cg";
 import { useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { textString, iconRender } from "../../utils/string";
+
+const URL = "http://localhost:3000/api";
 
 const Banner = () => {
   const [data, setData] = useState();
-  const [error, Seterror] = useState(false);
-  const [respData, SetrespData] = useState();
+  const [error, setError] = useState(false);
+  const [respData, setResp] = useState();
+
   const handleChange = (event) => {
     if (data?.name === "" || data?.email === "") {
-      Seterror(true);
+      setError(true);
     } else {
-      Seterror(false);
+      setError(false);
       setData({ ...data, [event.target.name]: event.target.value });
     }
   };
+
   const handleClick = async () => {
     if (data === undefined) {
-      Seterror(true);
+      setError(true);
     } else {
-      axios.post("http://localhost:3000/api/register", data).then((res) => {
-        if (res.data.success === true) {
-          toast?.success("Successfully Registered!");
-        }
-        SetrespData(res.data.data);
-      }).catch((error)=>{
-        console.log(error,"error");
-        toast?.error(error?.response?.data?.Message);
-      });
-      Seterror(false);
+      axios
+        .post(`${URL}/register`, data)
+        .then((res) => {
+          if (res.data.success === true) {
+            toast?.success("Successfully Registered!");
+          }
+          setResp(res.data.data);
+        })
+        .catch((error) => {
+          console.log(error, "error");
+          toast?.error(error?.response?.data?.Message);
+        });
+      setError(false);
     }
   };
   const HandleScroll = () => {
@@ -49,15 +50,10 @@ const Banner = () => {
           <Toaster position="top-center" reverseOrder={false} />
           <div>
             <div>
-              <h1 className="banner-text">
-                Vehicle Maintenance from the comfort of your home{" "}
-              </h1>
+              <h1 className="banner-text">{textString.vehicleTxt}</h1>
             </div>
             <div className="mb-4">
-              <p className="fw-lighter banner-para">
-                Open Auto soothes the hassle of maintaining your vehicles and
-                helps you deal with unexpected repairs worry-free{" "}
-              </p>
+              <p className="fw-lighter banner-para">{textString.openTxt}</p>
             </div>
             <div className="my-4 input-responsive">
               <input
@@ -72,7 +68,7 @@ const Banner = () => {
                 }}
               />
               {error ? (
-                <p className="text-danger text-left">Please Enter Your Name</p>
+                <p className="text-danger text-left">{textString.errorName}</p>
               ) : (
                 ""
               )}
@@ -90,7 +86,7 @@ const Banner = () => {
                 }}
               />
               {error ? (
-                <p className="text-danger text-left">Please Enter Your Email</p>
+                <p className="text-danger text-left">{textString.errorEmail}</p>
               ) : (
                 ""
               )}
@@ -110,21 +106,10 @@ const Banner = () => {
           <div className="down-arrow" onClick={HandleScroll}>
             <CgPushChevronDownO />
           </div>
-          <span className="ps-2">
-            <FaFacebookF />
-          </span>
-          <span className="ps-2">
-            <AiOutlineTwitter />
-          </span>
-          <span className="ps-2">
-            <AiFillYoutube />
-          </span>
-          <span className="ps-2">
-            <AiFillLinkedin />
-          </span>
-          <span className="ps-2">
-            <AiOutlineInstagram />
-          </span>
+          
+          {iconRender.map((data) => {
+            return <span className="ps-2">{data}</span>;
+          })}
         </div>
       </div>
     </>
